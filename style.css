@@ -45,7 +45,7 @@ body
 .main
 {
     min-height: 100vh;
-    background: url(img/ques.jpeg) no-repeat;
+    background: url(ques.jpeg) no-repeat;
     background-size: cover;
     pointer-events: auto;
     transition: .3s ease;
