@@ -1,0 +1,394 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    color: white;
+    overflow: hidden;
+}
+.header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo
+{
+    font-size: 34px;
+    font-weight: 900;
+    text-decoration: none;
+    color: white;
+}
+.navbar a
+{
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    margin-left: 35px;
+}
+.navbar a:hover,
+.navbar a.active
+{
+    color: red;
+}
+.main
+{
+    min-height: 100vh;
+    background: url(img/ques.jpeg) no-repeat;
+    background-size: cover;
+    pointer-events: auto;
+    transition: .3s ease;
+}
+.main.active{
+    filter: blur(8px);
+    pointer-events: none;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    width: 200%;
+}
+.home
+{
+    color: white;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    left: -50%;
+}
+.home> :nth-child(1){
+    font-size: 33px;
+    font-weight: 900;
+    text-align: center;
+}
+.home> :nth-child(2)
+{
+    font-size: 33px;
+    font-weight: 900;
+    text-align: center; 
+    margin-bottom: 20px;
+}
+.home .start-btn
+{
+    width: 150px;
+    height: 50px;
+    background: skyblue;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 1s;
+}
+.home .start-btn:hover
+{
+    background: rgb(46, 46, 204);
+}
+.popup-info
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    background: skyblue;
+    border-radius: 20px;
+    transform: translate(-50%,-50%) scale(0.9);
+    padding: 10px 20px 20px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+.popup-info.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup-info h2
+{
+    font-size: 40px;
+    color: blue;
+    margin-bottom: 10px;
+}
+.popup-info .info
+{
+   font-size: 15px;
+   color: black;
+   font-weight: 400px;
+   margin: 3px;
+}
+.popup-info .btn-grp
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgb(72, 70, 70);
+    margin-top: 10px;
+    padding: 13px 0 6px;
+}
+.popup-info .btn-grp .info-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    background: blue;
+    color: white;
+    cursor: pointer;
+    transition: 1s;
+}
+.popup-info .btn-grp .info-btn:nth-child(1){
+    background: transparent;
+    color:blue;
+}
+.popup-info .btn-grp .info-btn:nth-child(1):hover{
+    background: blue;
+    color: white;
+}
+.popup-info .btn-grp .info-btn:nth-child(2):hover{
+    background: blue;
+    border-color: blue;
+}
+.quiz-section
+{
+    position: relative;
+    left: -50%;
+    width: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .8s ease-in-out;
+    transition-delay: .25s;
+    z-index: 100;
+}
+.quiz-section.active{
+    left: 0;
+}
+.quiz-section .quiz-box{
+    position: relative;
+    width: 500px;
+    background: transparent;
+    border: 2px solid blue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+    transition: .3s ease;
+    transition-delay: 0s;
+}
+.quiz-section .quiz-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
+}
+.quiz-box h1{
+    font-size: 32px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent,blue,transparent);
+    border-radius: 6px;
+}
+.quiz-box .quiz-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid blue;
+}
+.quiz-header span{
+    font-size: 18px;
+    font-weight: 600;
+}
+.quiz-header .header-score{
+    background: blue;
+    padding: 7px;
+    border-radius: 5px;
+}
+.quiz-box .ques-text{
+    font-size: 24px;
+    font-weight: 700;
+}
+.option-list .option{
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 2px solid grey;
+    border-radius: 4px;
+    font-size: 13px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+.option-list .option:hover{
+    background: rgb(85, 83, 83);
+    border-color: rgb(85,83,83);
+}
+.option-list .option.correct{
+    background: black;
+    color: green;
+    border-color: green;
+}
+.option-list .option.incorrect{
+    background: black;
+    color: red;
+    border-color: red;
+}
+.option-list .option.disabled{
+    pointer-events: none;
+}
+.quiz-box .quiz-footer{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid blue;
+    padding-top: 20px;
+    margin-top: 25px;
+}
+.quiz-footer .ques-total{
+    font-size: 16px;
+    font-weight: 500;
+}
+.quiz-footer .next-btn{
+    width: 100px;
+    height: 40px;
+    background: rgb(85, 83, 83);
+    border: 2px solid rgb(85, 83, 83);
+    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .5s;
+}
+.quiz-footer .next-btn:hover{
+    background: blue;
+    border-color: blue;
+}
+.quiz-footer .next-btn.active{
+    pointer-events: auto;
+    background: blue;
+    border-color: blue;
+    color: white;
+}
+.quiz-footer .next-btn.active:hover{
+    background: rgb(37, 37, 170);
+    border-color: rgb(37,37,170);
+}
+.quiz-section .result-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(.9);
+    width: 500px;
+    background: transparent;
+    border: 2px solid blue;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+.quiz-section .result-box.active{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+.result-box h2{
+    font-size: 50px;
+}
+.result-box .percentage-container{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+.percentage-container .circular-progress{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(blue 3.6deg, rgb(85, 83, 83) 0deg);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.percentage-container .circular-progress::before{
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: black;
+    border-radius: 100%;
+}
+.circular-progress .progress-value{
+    position: relative;
+    font-size: 42px;
+    font-weight: 600;
+}
+.percentage-container .score-text{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.result-box .buttons{
+    display: flex;
+}
+.buttons button{
+    width: 130px;
+    height: 47px;
+    background: blue;
+    border: 2px solid blue;
+    outline: none;
+    border-radius: 7px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+.buttons button:nth-child(1):hover{
+    background: rgb(46, 46, 204);
+    border-color: rgb(46, 46, 204);
+}
+.buttons button:nth-child(2)
+{
+    background: transparent;
+    color: blue;
+}
+.buttons button:nth-child(2):hover{
+    background: blue;
+    color: white;
+}
